@@ -5,8 +5,11 @@
  */
 package gp8_transversal.vistas;
 
+import gp8_transversal.entidades.Alumno;
+import gp8_transversal.persistencia.AlumnoData;
 import gp8_transversal.persistencia.Conexion;
 import java.sql.Connection;
+import java.time.LocalDate;
 
 /**
  *
@@ -19,6 +22,11 @@ public class GP8_Transversal {
      */
     public static void main(String[] args) {
         Connection con = Conexion.getConexion();
+        
+        
+        Alumno xime = new Alumno (33757395, "Cuello", "Ximena", LocalDate.of(1988, 9, 28), true);
+        AlumnoData al = new AlumnoData();
+        al.guardarAlumno(xime);
     }
     
 }
