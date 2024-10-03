@@ -106,7 +106,20 @@ public class AlumnoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
         }
     }
-    
+    public void altaLogica (int id){
+        String sql="UPDATE alumno SET estado = 1 WHERE idAlumno = ?";
+         
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setInt(1,id);
+            int exito=ps.executeUpdate();
+            if(exito==1){
+                System.out.println("El Alumno fue dado de alta con exito!");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
+        }
+    }
     public Alumno buscarAlumnoPorId (int id){
         String query = "SELECT dni, apellido, nombre, fechaNac FROM alumno WHERE idAlumno=? AND estado=1";
         Alumno alumno = null;
