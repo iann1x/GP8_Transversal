@@ -24,9 +24,14 @@ public class GP8_Transversal {
         Connection con = Conexion.getConexion();
         
         
-        Alumno xime = new Alumno (33757395, "Cuello", "Ximena", LocalDate.of(1988, 9, 28), true);
+        Alumno xime = new Alumno (1,33757395, "Josecho", "Federico", LocalDate.of(1988, 9, 28), true);
         AlumnoData al = new AlumnoData();
-        al.guardarAlumno(xime);
+        //al.guardarAlumno(xime);
+        //al.modificarAlumno(xime);
+        al.eliminarAlumno(2);
+        
+       
+        
     }
     
 }
