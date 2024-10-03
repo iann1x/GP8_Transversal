@@ -5,22 +5,22 @@ package gp8_transversal.entidades;
 public class Materia {
     private int idmateria;
     private String nombre;
-    private int anioMateria;
+    private int cuatrimestre;
     private boolean estado;
 
     public Materia() {
     }
 
-    public Materia(int idmateria, String nombre, int anioMateria, boolean estado) {
+    public Materia(int idmateria, String nombre, int cuatrimestre, boolean estado) {
         this.idmateria = idmateria;
         this.nombre = nombre;
-        this.anioMateria = anioMateria;
+        this.cuatrimestre = cuatrimestre;
         this.estado = estado;
     }
 
     public Materia(String nombre, int anioMateria, boolean estado) {
         this.nombre = nombre;
-        this.anioMateria = anioMateria;
+        this.cuatrimestre = cuatrimestre;
         this.estado = estado;
     }
 
@@ -32,8 +32,8 @@ public class Materia {
         return nombre;
     }
 
-    public int getAnioMateria() {
-        return anioMateria;
+    public int getCuatrimestre() {
+        return cuatrimestre;
     }
 
     public boolean isEstado() {
@@ -48,8 +48,8 @@ public class Materia {
         this.nombre = nombre;
     }
 
-    public void setAnioMateria(int anioMateria) {
-        this.anioMateria = anioMateria;
+    public void setCuatrimestre(int cuatrimestre) {
+        this.cuatrimestre = cuatrimestre;
     }
 
     public void setEstado(boolean estado) {
@@ -58,7 +58,10 @@ public class Materia {
 
     @Override
     public String toString() {
-        return "Materia{" + "idmateria=" + idmateria + ", nombre=" + nombre + ", anioMateria=" + anioMateria + ", estado=" + estado + '}';
+        return "MATERIA IdMateria: " + idmateria + " "+
+                "Nombre: " + nombre + " "+
+                "Cuatrimestre: "+ cuatrimestre +  " "+
+                "Estado: " + estado + " ";
     }
     
     
