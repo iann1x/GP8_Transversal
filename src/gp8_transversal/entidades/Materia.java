@@ -1,33 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package gp8_transversal.entidades;
 
-/**
- *
- * @author Administrator
- */
+
 public class Materia {
     private int idmateria;
     private String nombre;
     private int anioMateria;
-    private boolean activo;
+    private boolean estado;
 
     public Materia() {
     }
 
-    public Materia(int idmateria, String nombre, int anioMateria, boolean activo) {
+    public Materia(int idmateria, String nombre, int anioMateria, boolean estado) {
         this.idmateria = idmateria;
         this.nombre = nombre;
         this.anioMateria = anioMateria;
-        this.activo = activo;
+        this.estado = estado;
     }
 
-    public Materia(String nombre, int anioMateria, boolean activo) {
+    public Materia(String nombre, int anioMateria, boolean estado) {
         this.nombre = nombre;
         this.anioMateria = anioMateria;
-        this.activo = activo;
+        this.estado = estado;
     }
 
     public int getIdmateria() {
@@ -42,8 +36,8 @@ public class Materia {
         return anioMateria;
     }
 
-    public boolean isActivo() {
-        return activo;
+    public boolean isEstado() {
+        return estado;
     }
 
     public void setIdmateria(int idmateria) {
@@ -58,13 +52,13 @@ public class Materia {
         this.anioMateria = anioMateria;
     }
 
-    public void setActivo(boolean activo) {
-        this.activo = activo;
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 
     @Override
     public String toString() {
-        return "Materia{" + "idmateria=" + idmateria + ", nombre=" + nombre + ", anioMateria=" + anioMateria + ", activo=" + activo + '}';
+        return "Materia{" + "idmateria=" + idmateria + ", nombre=" + nombre + ", anioMateria=" + anioMateria + ", estado=" + estado + '}';
     }
     
     

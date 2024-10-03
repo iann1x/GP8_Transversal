@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package gp8_transversal.entidades;
 
-/**
- *
- * @author Administrator
- */
+
 public class Inscripcion {
    private int idInscripcion;
    private Alumno alumno;
@@ -65,5 +59,16 @@ public class Inscripcion {
     public void setNota(double nota) {
         this.nota = nota;
     }
+
+    @Override
+    public String toString() {
+        return "IdInscripcion=" + idInscripcion +
+                alumno.getApellido() + " " +
+                alumno.getNombre() + " " +
+                materia.getNombre() + " "+
+                materia.getAnioMateria() +" ";        
+    }
+    
+    
            
 }
