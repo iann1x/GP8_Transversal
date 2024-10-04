@@ -193,11 +193,7 @@ public class AlumnoData {
         }
         
         
-    }
-
-
-
-
+    }   
 }
     
 
