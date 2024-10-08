@@ -9,6 +9,9 @@ import gp8_transversal.entidades.Alumno;
 import gp8_transversal.persistencia.AlumnoData;
 import gp8_transversal.persistencia.Conexion;
 import java.sql.Connection;
+
+
+
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -23,7 +26,8 @@ public class GP8_Transversal {
      */
     public static void main(String[] args) {
         Connection con = Conexion.getConexion();
-        
+        Menu menuvista = new Menu();
+         menuvista.setVisible(true);
         AlumnoData al = new AlumnoData();
         
         
