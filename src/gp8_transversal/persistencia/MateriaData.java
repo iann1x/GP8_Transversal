@@ -22,7 +22,7 @@ public class MateriaData {
     }
     
     public void guardarMateria(Materia materia){
-        String query = "INSERT (nombre, cuatrimestre, estado) VALUES (?, ?, ?)";
+        String query = "INSERT INTO materia(nombre, cuatrimestre, estado) VALUES (?, ?, ?)";
         
         try {
             PreparedStatement ps= con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -68,7 +68,7 @@ public class MateriaData {
     }
     
     public void modificarMateria (Materia materia){
-        String query = "UPDATE materia SET nombre = ?, cuatrimestre=?" + "WHERE idMateria = ?";
+        String query = "UPDATE materia SET nombre= ?, cuatrimestre= ? WHERE idMateria= ?";
         
         try {
             PreparedStatement ps = con.prepareStatement(query);
@@ -87,7 +87,7 @@ public class MateriaData {
     }
     
     public void bajaLogicaMateria (int id){
-        String query = "UPDATE materia SET estado = 0" + "WHERE idMateria = ?";
+        String query = "UPDATE materia SET estado=0 WHERE idMateria=?";
         
         try {
             PreparedStatement ps = con.prepareStatement(query);
@@ -104,7 +104,7 @@ public class MateriaData {
     }
         
     public void altaLogicaMateria (int id){
-        String query = "UPDATE materia SET estado = 1" + "WHERE idMateria = ?";
+        String query = "UPDATE materia SET estado=1 WHERE idMateria=?";
 
         try {
             PreparedStatement ps = con.prepareStatement(query);

@@ -23,6 +23,12 @@ public class Materia {
         this.cuatrimestre = cuatrimestre;
         this.estado = estado;
     }
+    
+    public Materia(int idMateria, String nombre, int cuatrimestre) {
+        this.idMateria = idMateria;
+        this.nombre = nombre;
+        this.cuatrimestre = cuatrimestre;
+    }
 
     public int getIdMateria() {
         return idMateria;
