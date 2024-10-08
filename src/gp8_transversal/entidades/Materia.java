@@ -3,7 +3,7 @@ package gp8_transversal.entidades;
 
 
 public class Materia {
-    private int idmateria;
+    private int idMateria;
     private String nombre;
     private int cuatrimestre;
     private boolean estado;
@@ -11,21 +11,21 @@ public class Materia {
     public Materia() {
     }
 
-    public Materia(int idmateria, String nombre, int cuatrimestre, boolean estado) {
-        this.idmateria = idmateria;
+    public Materia(int idMteria, String nombre, int cuatrimestre, boolean estado) {
+        this.idMateria = idMateria;
         this.nombre = nombre;
         this.cuatrimestre = cuatrimestre;
         this.estado = estado;
     }
 
-    public Materia(String nombre, int anioMateria, boolean estado) {
+    public Materia(String nombre, int cuatrimestre, boolean estado) {
         this.nombre = nombre;
         this.cuatrimestre = cuatrimestre;
         this.estado = estado;
     }
 
-    public int getIdmateria() {
-        return idmateria;
+    public int getIdMateria() {
+        return idMateria;
     }
 
     public String getNombre() {
@@ -40,8 +40,8 @@ public class Materia {
         return estado;
     }
 
-    public void setIdmateria(int idmateria) {
-        this.idmateria = idmateria;
+    public void setIdMateria(int idMateria) {
+        this.idMateria = idMateria;
     }
 
     public void setNombre(String nombre) {
@@ -58,7 +58,7 @@ public class Materia {
 
     @Override
     public String toString() {
-        return "MATERIA IdMateria: " + idmateria + " "+
+        return "MATERIA IdMateria: " + idMateria + " "+
                 "Nombre: " + nombre + " "+
                 "Cuatrimestre: "+ cuatrimestre +  " "+
                 "Estado: " + estado + " ";

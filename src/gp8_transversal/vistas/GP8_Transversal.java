@@ -27,7 +27,7 @@ public class GP8_Transversal {
     public static void main(String[] args) {
         Connection con = Conexion.getConexion();
         Menu menuvista = new Menu();
-         menuvista.setVisible(true);
+        menuvista.setVisible(true);
         AlumnoData al = new AlumnoData();
         
         
