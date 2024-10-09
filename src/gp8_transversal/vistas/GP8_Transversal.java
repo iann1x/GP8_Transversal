@@ -6,9 +6,11 @@
 package gp8_transversal.vistas;
 
 import gp8_transversal.entidades.Alumno;
+import gp8_transversal.entidades.Inscripcion;
 import gp8_transversal.entidades.Materia;
 import gp8_transversal.persistencia.AlumnoData;
 import gp8_transversal.persistencia.Conexion;
+import gp8_transversal.persistencia.InscripcionData;
 import gp8_transversal.persistencia.MateriaData;
 import java.sql.Connection;
 
@@ -121,5 +123,16 @@ public class GP8_Transversal {
 //    }
 
   //     mat.borrarMateria(1);
-}
+
+    InscripcionData id= new InscripcionData();
+    //inscripciondata pruebas
+    
+    /*for(Inscripcion inscripcion:id.obtenerInscripciones()){
+    
+        System.out.println("id " +inscripcion.getIdInscripcion());
+        System.out.println("Apellido "+inscripcion.getAlumno().getApellido());
+        System.out.println("Materia "+inscripcion.getMateria().getNombre());
+    }
+    */
+    }
 }
