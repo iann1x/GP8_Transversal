@@ -211,4 +211,37 @@ public class InscripcionData {
         }
         return mat;
     }
+
+    public List<Alumno> obtenerAlumnosXMateria(int idMateria){
+    
+        ArrayList<Alumno> alumnMat=new ArrayList<>();
+        
+        String sql= "SELECT a.idAlumno, dni, nombre, apellido, fechaNac,estado "
+                + "FROM inscripcion i, alumno a WHERE i.idAlumno = a.idAlumno AND idMateria = ? AND a.estado = 1";
+        
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setInt(1, idMateria);
+            
+            ResultSet rs=ps.executeQuery();
+            while(rs.next()){
+            
+                Alumno alumno= new Alumno();
+                alumno.setIdAlumno(rs.getInt("idAlumno"));
+                alumno.setApellido(rs.getString("apellido"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setFechaNac(rs.getDate("fechaNac").toLocalDate());
+                alumno.setEstado(rs.getBoolean("estado"));
+                alumnMat.add(alumno);
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a alguna de las tablas");
+        }
+        return alumnMat;
+        
+        
+    }
 }

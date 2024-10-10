@@ -51,7 +51,6 @@ private Alumno alumnoActual=null;
         jbGuardar = new javax.swing.JButton();
         jbBuscar = new javax.swing.JButton();
         jrEstado = new javax.swing.JRadioButton();
-        jcFechaNac = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setBorder(null);
@@ -136,7 +135,7 @@ private Alumno alumnoActual=null;
                         .addComponent(jbEliminar)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                         .addComponent(jbGuardar)
                         .addGap(37, 37, 37)
                         .addComponent(jbSalir)
@@ -149,7 +148,6 @@ private Alumno alumnoActual=null;
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jcFechaNac, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jtApellido)
                                     .addComponent(jtDni)
                                     .addComponent(jtNombre))
@@ -184,10 +182,8 @@ private Alumno alumnoActual=null;
                     .addComponent(jLabel4)
                     .addComponent(jrEstado))
                 .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jcFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbNuevo)
                     .addComponent(jbEliminar)
@@ -293,7 +289,6 @@ private void limpiarCampos(){
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbNuevo;
     private javax.swing.JButton jbSalir;
-    private com.toedter.calendar.JDateChooser jcFechaNac;
     private javax.swing.JLabel jltitulo;
     private javax.swing.JRadioButton jrEstado;
     private javax.swing.JTextField jtApellido;

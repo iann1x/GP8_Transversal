@@ -4,12 +4,17 @@
  */
 package gp8_transversal.vistas;
 
+import gp8_transversal.entidades.Materia;
+import gp8_transversal.persistencia.MateriaData;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kevin
  */
 public class vistaMateria extends javax.swing.JInternalFrame {
-
+   private MateriaData materiaData=new MateriaData();
+   private Materia materiaActual=null;
     /**
      * Creates new form vistaMateria
      */
@@ -55,7 +60,7 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jLabel3.setText("Nombre");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel4.setText("Año");
+        jLabel4.setText("Cuatrimestre");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel5.setText("Estado");
@@ -63,14 +68,39 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jtEstado.setText("Regular");
 
         jbBuscar.setText("Buscar");
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarActionPerformed(evt);
+            }
+        });
 
         jbEliminar.setText("Eliminar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
         jbNuevo.setText("Nuevo");
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoActionPerformed(evt);
+            }
+        });
 
         jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,6 +185,71 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+       nuevoMateria();
+    }//GEN-LAST:event_jbNuevoActionPerformed
+
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+        String nombre = jtNombre.getText();
+        int cuatrimestre = Integer.parseInt(jtAño.getText());
+        boolean estado = jtEstado.isSelected();
+
+        if (materiaActual == null) {
+            Materia nuevaMateria = new Materia();
+            nuevaMateria.setNombre(nombre);
+            nuevaMateria.setCuatrimestre(cuatrimestre);
+            nuevaMateria.setEstado(estado);
+            materiaData.guardarMateria(nuevaMateria);
+            System.out.println("Materia guardada: " + nuevaMateria.getNombre());
+        } else { 
+            materiaActual.setNombre(nombre);
+            materiaActual.setCuatrimestre(cuatrimestre);
+            materiaActual.setEstado(estado);
+            materiaData.modificarMateria(materiaActual);
+            System.out.println("Materia modificada: " + materiaActual.getNombre());
+        }
+
+        
+    }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+       dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+          if (materiaActual != null) {
+            materiaData.borrarMateria(materiaActual.getIdMateria());
+            System.out.println("Materia eliminada: " + materiaActual.getNombre());
+            nuevoMateria(); 
+        } else {
+            System.out.println("No hay materia seleccionada para eliminar.");
+        }
+    }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+       try {
+            int id = Integer.parseInt(jtCodigo.getText());
+            materiaActual = materiaData.buscarMateria(id);
+            if (materiaActual != null) {
+                cargarMateria(materiaActual);
+            } else {
+                JOptionPane.showMessageDialog(null, "Materia no encontrada");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "ID Invalido");
+        }
+    }//GEN-LAST:event_jbBuscarActionPerformed
+public void cargarMateria(Materia materia){
+        jtNombre.setText(materia.getNombre());
+        jtAño.setText(String.valueOf(materia.getCuatrimestre()));
+        jtEstado.setSelected(materia.isEstado());
+}
+public void nuevoMateria(){
+        jtNombre.setText("");
+        jtAño.setText("");
+        jtCodigo.setText("");
+        jtEstado.setSelected(false);
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

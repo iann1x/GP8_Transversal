@@ -35,7 +35,7 @@ public class GP8_Transversal {
        //AlumnoData al = new AlumnoData();
         
         
- //     Alumno xime = new Alumno (1,33757321, "Jose", "Cuello", LocalDate.of(1988, 9, 28), true);
+   // Alumno xime = new Alumno (2,33757321, "Juan", "Chiti", LocalDate.of(1988, 9, 28), true);
 //      Alumno kevin = new Alumno (37256123, "Garcia", "Kevin", LocalDate.of(1993, 7, 31), true);
 //        Alumno facu = new Alumno (25756891, "Garcia", "Facundo", LocalDate.of(1997,4,5), true);
 //        Alumno ian = new Alumno (38147951, "Chiti", "Ian", LocalDate.of(2000, 10, 7), true);
@@ -44,10 +44,10 @@ public class GP8_Transversal {
         //al.guardarAlumno(kevin);
 //        al.guardarAlumno(facu);
 //        al.guardarAlumno(ian);
-        //al.altaLogica(1);
+        //al.altaLogica(2);
         
         
-   //     al.modificarAlumno(xime);
+        //al.modificarAlumno(xime);
         //al.bajaLogica(2);
         
         //Acá probamos que devuelva mensaje de error cuando no existe el Id buscado
