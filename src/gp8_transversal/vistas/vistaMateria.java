@@ -219,7 +219,7 @@ public class vistaMateria extends javax.swing.JInternalFrame {
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
           if (materiaActual != null) {
             materiaData.bajaLogicaMateria(materiaActual.getIdMateria());
-            JOptionPane.showMessageDialog(this,"Materia eliminada: " + materiaActual.getNombre());
+            //JOptionPane.showMessageDialog(this,"Materia eliminada: " + materiaActual.getNombre());
             nuevoMateria(); 
         } else {
             JOptionPane.showMessageDialog(this,"No hay materia seleccionada para eliminar.");

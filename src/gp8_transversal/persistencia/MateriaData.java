@@ -88,19 +88,36 @@ public class MateriaData {
     }
     
     public void bajaLogicaMateria (int id){
-        String query = "UPDATE materia SET estado=0 WHERE idMateria=?";
+        //ESTE BLOQUE PERMITE VERIFICAR QUE LA MATERIA NO ESTÉ ASOCIADA A ALUMNOS
+        String consulta = "SELECT COUNT(*) AS tieneAlumnos FROM inscripcion WHERE idMateria=?";
         
         try {
-            PreparedStatement ps = con.prepareStatement(query);
+            PreparedStatement ps = con.prepareStatement(consulta);
             ps.setInt(1, id);
-            int exito = ps.executeUpdate();
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                int alumnos = rs.getInt("tieneAlumnos");
+                if (alumnos>0){
+                    JOptionPane.showMessageDialog(null, "Hay alumnos inscritos en esta materia. Borre las inscripciones antes de darla de baja.");
+                    return;
+                }
+            }
+        
+             //A PARTIR DE ACÁ, SI tieneAlumnos =0, DA DE BAJA LA MATERIA
+            String query = "UPDATE materia SET estado=0 WHERE idMateria=?";
+        
+            PreparedStatement ps2 = con.prepareStatement(query);
+            ps2.setInt(1, id);
+            int exito = ps2.executeUpdate();
             
             if (exito==1){
-                //JOptionPane.showMessageDialog (null,"La materia se dio de baja con éxito.");
+                JOptionPane.showMessageDialog (null,"La materia se dio de baja con éxito.");
             }
             ps.close();
+            ps2.close();
         } catch (SQLException ex) {
-            //JOptionPane.showMessageDialog (null,"Error al acceder a la tabla materia");
+            JOptionPane.showMessageDialog (null,"Error al acceder a la tabla materia");
         }
     }
         
