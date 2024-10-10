@@ -12,6 +12,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 public class MateriaData {
@@ -35,11 +36,11 @@ public class MateriaData {
             
             if(rs.next()){
                 materia.setIdMateria(rs.getInt(1));
-                System.out.println("La materia se guardó correctamente");
+                JOptionPane.showMessageDialog (null,"La materia se guardó correctamente");
             }
             ps.close();
         } catch (SQLException ex) {
-            System.out.println("No se pudo cargar la materia a la base de datos");
+            JOptionPane.showMessageDialog (null,"No se pudo cargar la materia a la base de datos");
         }   
     }
     
@@ -58,11 +59,11 @@ public class MateriaData {
                 materia.setCuatrimestre(rs.getInt("cuatrimestre"));
                 materia.setEstado(true);      
             } else {
-                System.out.println("No existe una materia con ese Id");
+                JOptionPane.showMessageDialog (null,"No existe una materia con ese Id");
             }
             ps.close();
         } catch (SQLException ex) {
-            System.out.println("No se pudo cargar la materia a la base de datos");
+            JOptionPane.showMessageDialog (null,"No se pudo cargar la materia a la base de datos");
         }
       return materia;  
     }
@@ -78,11 +79,11 @@ public class MateriaData {
             int exito = ps.executeUpdate();
             
             if (exito ==1){
-                System.out.println("La materia se modificó con éxito");
+                JOptionPane.showMessageDialog (null,"La materia se modificó con éxito");
             }
             ps.close();
         } catch (SQLException ex) {
-             System.out.println("Error al acceder a la tabla materia");
+             JOptionPane.showMessageDialog (null,"Error al acceder a la tabla materia");
         }
     }
     
@@ -95,11 +96,11 @@ public class MateriaData {
             int exito = ps.executeUpdate();
             
             if (exito==1){
-                System.out.println("La materia se dio de baja con éxito.");
+                //JOptionPane.showMessageDialog (null,"La materia se dio de baja con éxito.");
             }
             ps.close();
         } catch (SQLException ex) {
-            System.out.println("Error al acceder a la tabla materia");
+            //JOptionPane.showMessageDialog (null,"Error al acceder a la tabla materia");
         }
     }
         
@@ -112,11 +113,11 @@ public class MateriaData {
             int exito = ps.executeUpdate();
 
             if (exito==1){
-                System.out.println("La materia se dio de alta con éxito.");
+                JOptionPane.showMessageDialog (null,"La materia se dio de alta con éxito.");
             }
             ps.close();
         } catch (SQLException ex) {
-            System.out.println("Error al acceder a la tabla materia");
+            JOptionPane.showMessageDialog (null,"Error al acceder a la tabla materia");
         }
     }
     
@@ -139,7 +140,7 @@ public class MateriaData {
             }
             ps.close(); 
         } catch (SQLException ex) {
-            System.out.println("Error al acceder a la tabla materia");
+            JOptionPane.showMessageDialog (null,"Error al acceder a la tabla materia");
         }
         return materias;
     }
@@ -153,11 +154,11 @@ public class MateriaData {
             int exito = ps.executeUpdate();
             
             if(exito == 1){
-                System.out.println("La materia se eliminó correctamente");
+                //JOptionPane.showMessageDialog (null,"La materia se eliminó correctamente");
             }
             ps.close();
         } catch (SQLException ex) {
-            System.out.println("No se pudo acceder a la base de datos");
+            //JOptionPane.showMessageDialog (null,"No se pudo acceder a la base de datos");
         }
         
     }

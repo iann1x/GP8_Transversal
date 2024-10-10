@@ -217,7 +217,7 @@ private Alumno alumnoActual=null;
        }
       } catch(NumberFormatException ex){
 
-          JOptionPane.showMessageDialog(this,"debe ingresar un numero valido");
+          JOptionPane.showMessageDialog(this,"Debe ingresar un numero valido");
       }
        
     }//GEN-LAST:event_jbBuscarActionPerformed
@@ -244,7 +244,7 @@ private Alumno alumnoActual=null;
          alumnoActual=new Alumno(dni,apellido,nombre,fechaNac,estado);
          aluData.guardarAlumno(alumnoActual);
          
-           JOptionPane.showMessageDialog(this,"alumno guardado");
+           JOptionPane.showMessageDialog(this,"Alumno guardado");
          
          }else  {
          alumnoActual.setDni(dni);
@@ -254,7 +254,7 @@ private Alumno alumnoActual=null;
           aluData.modificarAlumno(alumnoActual);
          }
     }catch(NumberFormatException nfe){
-    JOptionPane.showMessageDialog(this,"debe ingresar un dni valido");
+    JOptionPane.showMessageDialog(this,"Debe ingresar un dni válido");
     }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
@@ -266,7 +266,7 @@ private Alumno alumnoActual=null;
         
                 }else{
                         
-                        JOptionPane.showMessageDialog(this,"no hay un alumno seleccionado");
+                        JOptionPane.showMessageDialog(this,"No hay un alumno seleccionado");
                         
                         }
      
