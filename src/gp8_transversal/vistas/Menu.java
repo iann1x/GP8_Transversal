@@ -151,53 +151,53 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmFormularioAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmFormularioAlumnoActionPerformed
-      escritorio.removeAll();
-      escritorio.repaint();
-      vistaAlumno alumnovista = new vistaAlumno();
-      alumnovista.setVisible(true);
+        escritorio.removeAll();
+        escritorio.repaint();
+        vistaAlumno alumnovista = new vistaAlumno();
+        alumnovista.setVisible(true);
       
-     escritorio.add(alumnovista);
+        escritorio.add(alumnovista);
       
     }//GEN-LAST:event_jmFormularioAlumnoActionPerformed
 
     private void jmFormularioMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmFormularioMateriasActionPerformed
         escritorio.removeAll();
-      escritorio.repaint();
-      vistaMateria materiaVista = new vistaMateria();
-      materiaVista.setVisible(true);
+        escritorio.repaint();
+        vistaMateria materiaVista = new vistaMateria();
+        materiaVista.setVisible(true);
       
-     escritorio.add(materiaVista);
+        escritorio.add(materiaVista);
     }//GEN-LAST:event_jmFormularioMateriasActionPerformed
 
     private void jmInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmInscripcionesActionPerformed
-      escritorio.removeAll();
-      escritorio.repaint();
-     formularioInscripcion inscripcionVista = new formularioInscripcion();
-      inscripcionVista.setVisible(true);
+        escritorio.removeAll();
+        escritorio.repaint();
+        formularioInscripcion inscripcionVista = new formularioInscripcion();
+        inscripcionVista.setVisible(true);
       
-     escritorio.add(inscripcionVista);
+        escritorio.add(inscripcionVista);
     }//GEN-LAST:event_jmInscripcionesActionPerformed
 
     private void jmNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmNotasActionPerformed
-       escritorio.removeAll();
-      escritorio.repaint();
-     vistaNotas notasVista = new vistaNotas();
-     notasVista.setVisible(true);
+        escritorio.removeAll();
+        escritorio.repaint();
+        vistaNotas notasVista = new vistaNotas();
+        notasVista.setVisible(true);
       
-     escritorio.add(notasVista);
+        escritorio.add(notasVista);
     }//GEN-LAST:event_jmNotasActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         escritorio.removeAll();
-      escritorio.repaint();
-     vistaConsultaMateria consultaVista = new vistaConsultaMateria();
-    consultaVista.setVisible(true);
+        escritorio.repaint();
+        vistaConsultaMateria consultaVista = new vistaConsultaMateria();
+        consultaVista.setVisible(true);
       
-     escritorio.add(consultaVista);
+        escritorio.add(consultaVista);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**

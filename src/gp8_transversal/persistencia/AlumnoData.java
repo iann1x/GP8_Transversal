@@ -127,6 +127,7 @@ public class AlumnoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
         }
     }
+    
     public Alumno buscarAlumnoPorId (int id){
         String query = "SELECT dni, apellido, nombre, fechaNac FROM alumno WHERE idAlumno=? AND estado=1";
         Alumno alumno = null;
