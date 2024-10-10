@@ -51,6 +51,7 @@ private Alumno alumnoActual=null;
         jbGuardar = new javax.swing.JButton();
         jbBuscar = new javax.swing.JButton();
         jrEstado = new javax.swing.JRadioButton();
+        jcFechaNac = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setBorder(null);
@@ -133,15 +134,9 @@ private Alumno alumnoActual=null;
                         .addComponent(jbNuevo)
                         .addGap(48, 48, 48)
                         .addComponent(jbEliminar)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                        .addComponent(jbGuardar)
-                        .addGap(37, 37, 37)
-                        .addComponent(jbSalir)
-                        .addGap(16, 16, 16))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jrEstado)
@@ -152,8 +147,17 @@ private Alumno alumnoActual=null;
                                     .addComponent(jtDni)
                                     .addComponent(jtNombre))
                                 .addGap(23, 23, 23)
-                                .addComponent(jbBuscar)))))
-                .addGap(29, 29, 29))
+                                .addComponent(jbBuscar)))
+                        .addGap(29, 29, 29))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jcFechaNac, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbGuardar)))
+                        .addGap(37, 37, 37)
+                        .addComponent(jbSalir)
+                        .addGap(16, 16, 16))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jltitulo)
@@ -182,8 +186,10 @@ private Alumno alumnoActual=null;
                     .addComponent(jLabel4)
                     .addComponent(jrEstado))
                 .addGap(49, 49, 49)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jcFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbNuevo)
                     .addComponent(jbEliminar)
@@ -289,6 +295,7 @@ private void limpiarCampos(){
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbNuevo;
     private javax.swing.JButton jbSalir;
+    private com.toedter.calendar.JDateChooser jcFechaNac;
     private javax.swing.JLabel jltitulo;
     private javax.swing.JRadioButton jrEstado;
     private javax.swing.JTextField jtApellido;
