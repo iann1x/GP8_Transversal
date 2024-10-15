@@ -84,7 +84,7 @@ public class GP8_Transversal {
 //            
 //        }
      
-   // MateriaData mat = new MateriaData();
+   //MateriaData mat = new MateriaData();
     
     //PROBAMOS QUE FUNCIONA EL METODO Y CARGAMOS CUATRO MATERIAS
     /*
@@ -124,7 +124,7 @@ public class GP8_Transversal {
 
   //     mat.borrarMateria(1);
 
-    InscripcionData id= new InscripcionData();
+    //InscripcionData id= new InscripcionData();
     //inscripciondata pruebas
     
     /*for(Inscripcion inscripcion:id.obtenerInscripciones()){
@@ -135,4 +135,6 @@ public class GP8_Transversal {
     }
     */
     }
+    
+    
 }

@@ -25,7 +25,7 @@ public class Alumno {
     }
 
     public Alumno(int dni, String apellido, String nombre, LocalDate fechaNac, boolean estado) {
-         this.dni = dni;
+        this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
         this.fechaNac = fechaNac;
@@ -48,8 +48,6 @@ public class Alumno {
         this.dni = dni;
     }
     
-    
-
     public String getApellido() {
         return apellido;
     }

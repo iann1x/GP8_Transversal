@@ -212,12 +212,11 @@ public class InscripcionData {
         return mat;
     }
 
-    public List<Alumno> obtenerAlumnosXMateria(int idMateria){
+    public ArrayList<Alumno> obtenerAlumnosXMateria(int idMateria){
     
         ArrayList<Alumno> alumnMat=new ArrayList<>();
         
-        String sql= "SELECT a.idAlumno, dni, nombre, apellido, fechaNac,estado "
-                + "FROM inscripcion i, alumno a WHERE i.idAlumno = a.idAlumno AND idMateria = ? AND a.estado = 1";
+        String sql= "SELECT a.idAlumno, a.dni, a.nombre, a.apellido FROM inscripcion i JOIN alumno a ON i.idAlumno = a.idAlumno WHERE idMateria = ? AND a.estado = 1";
         
         try {
             PreparedStatement ps=con.prepareStatement(sql);
@@ -228,13 +227,13 @@ public class InscripcionData {
             
                 Alumno alumno= new Alumno();
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
+                alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
-                alumno.setFechaNac(rs.getDate("fechaNac").toLocalDate());
-                alumno.setEstado(rs.getBoolean("estado"));
+                //alumno.setFechaNac(rs.getDate("fechaNac").toLocalDate());
+                //alumno.setEstado(rs.getBoolean("estado"));
                 alumnMat.add(alumno);
             }
-            
             ps.close();
             
         } catch (SQLException ex) {
