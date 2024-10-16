@@ -4,17 +4,43 @@
  */
 package gp8_transversal.vistas;
 
+import gp8_transversal.entidades.Alumno;
+import gp8_transversal.entidades.Inscripcion;
+import gp8_transversal.entidades.Materia;
+import gp8_transversal.persistencia.AlumnoData;
+import gp8_transversal.persistencia.InscripcionData;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Kevin
  */
 public class vistaNotas extends javax.swing.JInternalFrame {
 
+    private DefaultTableModel modelo = new DefaultTableModel();
+    private List<Alumno> listaA;
+    private List<Inscripcion> listaI;
+    
+    private AlumnoData aData;
+    private InscripcionData inscData;
     /**
      * Creates new form formularioInscripcion
      */
     public vistaNotas() {
         initComponents();
+        aData = new AlumnoData();
+        inscData = new InscripcionData();
+        
+       
+        listaA = aData.mostrarAlumnos();
+        jcbAlumno.addActionListener(e -> cargarAlumnosTabla());
+        cargarAlumnos();
+        armarTabla();
+        
+        
     }
 
     /**
@@ -30,7 +56,7 @@ public class vistaNotas extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jcbAlumno = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTnotas = new javax.swing.JTable();
         jbSalir = new javax.swing.JButton();
         jbGuardar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
@@ -45,9 +71,7 @@ public class vistaNotas extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel2.setText("Seleccione un alumno:");
 
-        jcbAlumno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTnotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -63,11 +87,21 @@ public class vistaNotas extends javax.swing.JInternalFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTnotas);
 
         jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,15 +154,59 @@ public class vistaNotas extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
 
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+  
+    }//GEN-LAST:event_jbGuardarActionPerformed
+private void armarTabla(){
+       modelo.addColumn("Codigo");
+       modelo.addColumn("Nombre");
+       modelo.addColumn("Nota");
+       
+     
+       jTnotas.setModel(modelo);  
+    }
+ private void cargarAlumnos(){
+        jcbAlumno.removeAllItems(); 
+        for (Alumno al:listaA){
+            jcbAlumno.addItem(al);
+        }
+    }
+  public void cargarAlumnosTabla() {
+        modelo.setRowCount(0);
+        Alumno seleccionado = (Alumno) jcbAlumno.getSelectedItem();
+
+        if (seleccionado == null) {
+            JOptionPane.showMessageDialog(null, "Por favor, selecciona un alumno");
+            return;
+        }
+
+        List<Inscripcion> inscripciones = inscData.obtenerInscripciones(seleccionado.getIdAlumno()); // Método para obtener inscripciones
+
+        if (inscripciones == null || inscripciones.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay notas de este alumno");
+            return;
+        }
+
+        for (Inscripcion ins : inscripciones) {
+            modelo.addRow(new Object[]{
+                ins.getIdInscripcion(), ins.getAlumno().getNombre(), ins.getNota()
+            });
+        }
+    }
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTnotas;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbSalir;
-    private javax.swing.JComboBox<String> jcbAlumno;
+    private javax.swing.JComboBox<Alumno> jcbAlumno;
     // End of variables declaration//GEN-END:variables
 }

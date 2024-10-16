@@ -96,7 +96,7 @@ public class InscripcionData {
         
     }
     
-    public List<Inscripcion> obtenerInscripciones(){
+    public List<Inscripcion> obtenerInscripciones(int iDAlumno){
     
         ArrayList<Inscripcion> cursadas= new ArrayList<>();
         

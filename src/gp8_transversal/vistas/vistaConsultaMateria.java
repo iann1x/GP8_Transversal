@@ -22,7 +22,7 @@ public class vistaConsultaMateria extends javax.swing.JInternalFrame {
     
     private List <Materia> listaM;
     private List <Alumno> listaA;
-    private DefaultTableModel modelo = new DefaultTableModel();;
+    private DefaultTableModel modelo = new DefaultTableModel();
     
     private AlumnoData aData;
     private MateriaData mData;
