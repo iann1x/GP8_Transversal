@@ -159,9 +159,9 @@ public class InscripcionData {
     
         ArrayList<Materia> mat=new ArrayList<>();
         
-        String sql = "SELECT inscripcion.idMateria, nombre, anio FROM inscripcion,"+
-                " materia WHERE inscripcion.idMateria = materia.idMateria"+
-                "AND inscripcion.idAlumno = ?";
+        String sql = "SELECT inscripcion.idMateria, nombre, cuatrimestre FROM inscripcion,"+
+                " materia WHERE inscripcion.idMateria = materia.idMateria " +
+                " AND inscripcion.idAlumno = ?;";
         
         try {
             PreparedStatement ps=con.prepareStatement(sql);
@@ -172,13 +172,14 @@ public class InscripcionData {
                 Materia materia=new Materia();
                 materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
-                materia.setCuatrimestre(rs.getInt("anio"));
+                materia.setCuatrimestre(rs.getInt("cuatrimestre"));
                 mat.add(materia);
             }
             
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
+            
         }
         return mat;
         
@@ -189,7 +190,7 @@ public class InscripcionData {
     
         ArrayList<Materia> mat=new ArrayList<>();
         
-        String sql= "SELECT * FROM materia WHERE estado = 1 AND idMateria not in "
+        String sql= "SELECT * FROM materia WHERE estado = 1 AND idMateria not in"
                 + "(SELECT idMateria FROM inscripcion WHERE idAlumno = ?)";
         
         try {
@@ -201,7 +202,7 @@ public class InscripcionData {
                 Materia materia=new Materia();
                 materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
-                materia.setCuatrimestre(rs.getInt("anio"));
+                materia.setCuatrimestre(rs.getInt("cuatrimestre"));
                 mat.add(materia);
             }
             
