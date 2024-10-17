@@ -71,6 +71,12 @@ public class vistaNotas extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel2.setText("Seleccione un alumno:");
 
+        jcbAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbAlumnoActionPerformed(evt);
+            }
+        });
+
         jTnotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -162,6 +168,10 @@ public class vistaNotas extends javax.swing.JInternalFrame {
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
   
     }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jcbAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbAlumnoActionPerformed
 private void armarTabla(){
        modelo.addColumn("Codigo");
        modelo.addColumn("Nombre");
@@ -194,7 +204,7 @@ private void armarTabla(){
 
         for (Inscripcion ins : inscripciones) {
             modelo.addRow(new Object[]{
-                ins.getIdInscripcion(), ins.getAlumno().getNombre(), ins.getNota()
+                ins.getIdInscripcion(), ins.getMateria().getNombre(), ins.getNota()
             });
         }
     }

@@ -100,10 +100,11 @@ public class InscripcionData {
     
         ArrayList<Inscripcion> cursadas= new ArrayList<>();
         
-        String sql= "SELECT * FROM inscripcion";
+        String sql= "SELECT * FROM inscripcion WHERE idAlumno=?";
         
         try {
             PreparedStatement ps=con.prepareStatement(sql);
+            ps.setInt(1, iDAlumno);
             ResultSet rs=ps.executeQuery();
             while(rs.next()){
             
@@ -159,8 +160,8 @@ public class InscripcionData {
     
         ArrayList<Materia> mat=new ArrayList<>();
         
-        String sql = "SELECT inscripcion.idMateria, nombre, anio FROM inscripcion,"+
-                " materia WHERE inscripcion.idMateria = materia.idMateria"+
+        String sql = "SELECT inscripcion.idMateria, nombre, cuatrimestre FROM inscripcion, "+
+                "materia WHERE inscripcion.idMateria = materia.idMateria "+
                 "AND inscripcion.idAlumno = ?";
         
         try {
@@ -172,7 +173,7 @@ public class InscripcionData {
                 Materia materia=new Materia();
                 materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
-                materia.setCuatrimestre(rs.getInt("anio"));
+                materia.setCuatrimestre(rs.getInt("cuatrimestre"));
                 mat.add(materia);
             }
             
@@ -201,7 +202,7 @@ public class InscripcionData {
                 Materia materia=new Materia();
                 materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
-                materia.setCuatrimestre(rs.getInt("anio"));
+                materia.setCuatrimestre(rs.getInt("cuatrimestre"));
                 mat.add(materia);
             }
             
