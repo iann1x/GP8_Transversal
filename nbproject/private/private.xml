@@ -6,11 +6,15 @@
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/entidades/Materia.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/vistas/Menu.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/vistas/vistaAlumno.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/persistencia/AlumnoData.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/vistas/vistaNotas.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/persistencia/Conexion.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/persistencia/MateriaData.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/vistas/GP8_Transversal.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/vistas/vistaMateria.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/persistencia/InscripcionData.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/entidades/Inscripcion.java</file>
+            <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/vistas/vistaConsultaMateria.java</file>
         </group>
     </open-files>
 </project-private>

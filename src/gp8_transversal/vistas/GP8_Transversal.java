@@ -134,6 +134,27 @@ public class GP8_Transversal {
         System.out.println("Materia "+inscripcion.getMateria().getNombre());
     }
     */
+    
+    /*InscripcionData inscripcionData = new InscripcionData();
+        
+     
+        Alumno alumno1 = new Alumno();  
+        alumno1.setIdAlumno(1);         
+        
+        Materia Matemática = new Materia(); 
+        Matemática.setIdMateria(101);       
+        
+     
+        Inscripcion inscripcion1 = new Inscripcion();
+        inscripcion1.setAlumno(alumno1);
+        inscripcion1.setMateria(Matemática);
+        inscripcion1.setNota(7); 
+
+       
+        inscripcionData.guardarInscripcion(inscripcion1);
+
+    */
+    
     }
     
     
