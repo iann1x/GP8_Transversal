@@ -157,6 +157,11 @@ private void cargarDatosInscriptos() {
         });
 
         jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         jbAnular.setText("Anular inscripcion");
         jbAnular.setEnabled(false);
@@ -282,6 +287,10 @@ private void cargarDatosInscriptos() {
         borrarFilasTabla();
         }
     }//GEN-LAST:event_jbAnularActionPerformed
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+           dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
