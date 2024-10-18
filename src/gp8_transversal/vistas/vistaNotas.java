@@ -166,8 +166,7 @@ public class vistaNotas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-
-        Alumno alumnoSeleccionado = (Alumno) jcbAlumno.getSelectedItem();
+        Alumno alumnoSeleccionado = (Alumno)jcbAlumno.getSelectedItem();
 
         if (alumnoSeleccionado == null) {
             JOptionPane.showMessageDialog(null, "Por favor, selecciona un alumno");
@@ -175,7 +174,6 @@ public class vistaNotas extends javax.swing.JInternalFrame {
         }
 
         for (int i = 0; i < modelo.getRowCount(); i++) {
-
             String idMateriaStr = modelo.getValueAt(i, 0).toString();
             int idMateria;
 
@@ -185,21 +183,23 @@ public class vistaNotas extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "El ID de la materia en la fila " + (i + 1) + " es inválido.");
                 return;
             }
-
-            int nuevaNota;
-
+         
+            double nuevaNota;
+            
             try {
-                nuevaNota = Integer.parseInt(modelo.getValueAt(i, 2).toString());  // Asumiendo que la nota está en la columna 2
+                nuevaNota = Double.parseDouble (modelo.getValueAt(i, 2).toString());
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "La nota en la fila " + (i + 1) + " es inválida. Ingrese un número.");
                 return;
             }
+            
+            System.out.println(nuevaNota);
 
             if (nuevaNota < 0 || nuevaNota > 10) {
                 JOptionPane.showMessageDialog(null, "La nota en la fila " + (i + 1) + " no está entre 0 y 10.");
                 return;
             }
-
+            System.out.println("La nueva nota es "+nuevaNota);
             inscData.actualizarNota(nuevaNota, alumnoSeleccionado.getIdAlumno(), idMateria);
         }
 
@@ -212,9 +212,9 @@ public class vistaNotas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbAlumnoActionPerformed
     private void armarTabla() {
-        modelo.addColumn("codigo");
-        modelo.addColumn("nombre");
-        modelo.addColumn("nota");
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Nota");
 
         jTnotas.setModel(modelo);
     }

@@ -188,11 +188,11 @@ public class AlumnoData {
                 alumno.setFechaNac(rs.getDate("fechaNac").toLocalDate());
                 alumno.setEstado(true);
             }else{
-                System.out.println("No existe un alumno con ese DNI");
+                JOptionPane.showMessageDialog(null,"No existe un alumno con ese DNI");
             }
             ps.close();
         } catch (SQLException ex) {
-            System.out.println("No se pudo acceder a la base de datos");
+            JOptionPane.showMessageDialog(null,"No se pudo acceder a la base de datos");
         }
         return alumno;
     }
@@ -205,11 +205,11 @@ public class AlumnoData {
             ps.setInt(1, id);
             int exito = ps.executeUpdate();
             if (exito == 1){
-                System.out.println("El alumno se eliminó correctamente");
+                JOptionPane.showMessageDialog(null,"El alumno se eliminó correctamente");
             }
             ps.close();
         } catch (SQLException ex) {
-            System.out.println("No se pudo acceder a la base de datos");
+            JOptionPane.showMessageDialog(null,"No se pudo acceder a la base de datos");
         }
         
         
