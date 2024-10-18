@@ -3,6 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+
+            <file>file:/C:/Users/Kevin/Documents/GitHub/GP8_Transversal/src/gp8_transversal/vistas/formularioInscripcion.java</file>
+          
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/entidades/Materia.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/vistas/Menu.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/vistas/vistaAlumno.java</file>
@@ -15,6 +18,7 @@
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/persistencia/InscripcionData.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/entidades/Inscripcion.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/GP8_Transversal/src/gp8_transversal/vistas/vistaConsultaMateria.java</file>
+
         </group>
     </open-files>
 </project-private>
