@@ -38,12 +38,12 @@ public class AlumnoData {
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()){
                 alumno.setIdAlumno(rs.getInt(1));
-                System.out.println("El alumno se guardó correctamente."); 
+                //JOptionPane.showMessageDialog (null, "El alumno se guardó correctamente."); 
             }
             ps.close();
             
         } catch (SQLException ex) {
-            System.out.println("No se pudo cargar el alumno a la base de datos");
+            JOptionPane.showMessageDialog (null,"No se pudo cargar el alumno a la base de datos");
         }
     }
     
@@ -68,8 +68,8 @@ public class AlumnoData {
             }
             ps.close();
         } catch (SQLException ex) {
-          //JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
-           System.out.println("Error al acceder a la tabla alumno");
+           JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
+           //System.out.println("Error al acceder a la tabla alumno");
         }
         return alumnos;
     }
@@ -86,33 +86,52 @@ public class AlumnoData {
             ps.setInt(5, alumno.getIdAlumno());
             int exito = ps.executeUpdate();
             if(exito==1){
-            //JOptionPane.showMessageDialog(null, "El alumno fue modificado con exito");
-                System.out.println("El alumno fue modificado con exito.");
+                JOptionPane.showMessageDialog(null, "El alumno fue modificado con exito");
+                //System.out.println("El alumno fue modificado con exito.");
             }
             ps.close();
         } catch (SQLException ex) {
-          //JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
-            System.out.println("Error al acceder a la tabla alumno");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
+            //System.out.println("Error al acceder a la tabla alumno");
         }
     }
  
     public void bajaLogica (int id){
-        String sql="UPDATE alumno SET estado = 0 WHERE idAlumno = ?";
-         
+        //ESTE BLOQUE PERMITE VERIFICAR QUE EL ALUMNO NO ESTÉ INSCRIPTO ANTES DE DARLO DE BAJA
+        String consulta = "SELECT COUNT(*) AS tieneInscripciones FROM inscripcion WHERE idAlumno=?";
+        
         try {
-            PreparedStatement ps=con.prepareStatement(sql);
-            ps.setInt(1,id);
-            int exito=ps.executeUpdate();
+            PreparedStatement ps = con.prepareStatement(consulta);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()){
+                int inscripciones = rs.getInt("tieneInscripciones");
+                if(inscripciones >0){
+                    JOptionPane.showMessageDialog(null, "El alumno está asociado a materias. Elimine las inscripciones antes de darlo de baja");
+                    return;
+                }
+            }
+
+        
+        //A PARTIR DE ACÁ, SI tieneInscripciones =0, LO DA DE BAJA    
+            String sql= "UPDATE alumno SET estado = 0 WHERE idAlumno = ?";
+            PreparedStatement ps2 = con.prepareStatement(sql);
+         
+            ps2.setInt(1,id);
+            int exito=ps2.executeUpdate();
             if(exito==1){
-            //JOptionPane.showMessageDialog(null, "El alumno se dio de baja con exito.");
-                System.out.println("El alumno se dio de baja con éxito.");
+                JOptionPane.showMessageDialog(null, "El alumno se dio de baja con exito.");
+                //System.out.println("El alumno se dio de baja con éxito.");
             }
             ps.close();
+            ps2.close();
         } catch (SQLException ex) {
-            //JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
-            System.out.println("Error al acceder a la tabla alumno");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
+            //System.out.println("Error al acceder a la tabla alumno");
         }
     }
+    
     public void altaLogica (int id){
         String sql="UPDATE alumno SET estado = 1 WHERE idAlumno = ?";
          
@@ -121,7 +140,7 @@ public class AlumnoData {
             ps.setInt(1,id);
             int exito=ps.executeUpdate();
             if(exito==1){
-                System.out.println("El Alumno fue dado de alta con exito!");
+                JOptionPane.showMessageDialog (null,"El Alumno fue dado de alta con exito!");
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
@@ -144,11 +163,11 @@ public class AlumnoData {
                 alumno.setFechaNac(rs.getDate("fechaNac").toLocalDate());
                 alumno.setEstado(true);
             }else{
-                System.out.println("No existe un alumno con ese Id");
+                JOptionPane.showMessageDialog (null,"No existe un alumno con ese Id");
             }
             ps.close();
         } catch (SQLException ex) {
-            System.out.println("No se pudo acceder a la base de datos");
+            JOptionPane.showMessageDialog (null,"No se pudo acceder a la base de datos");
         }
         return alumno;
     }

@@ -35,7 +35,7 @@ public class GP8_Transversal {
        //AlumnoData al = new AlumnoData();
         
         
- //     Alumno xime = new Alumno (1,33757321, "Jose", "Cuello", LocalDate.of(1988, 9, 28), true);
+   // Alumno xime = new Alumno (2,33757321, "Juan", "Chiti", LocalDate.of(1988, 9, 28), true);
 //      Alumno kevin = new Alumno (37256123, "Garcia", "Kevin", LocalDate.of(1993, 7, 31), true);
 //        Alumno facu = new Alumno (25756891, "Garcia", "Facundo", LocalDate.of(1997,4,5), true);
 //        Alumno ian = new Alumno (38147951, "Chiti", "Ian", LocalDate.of(2000, 10, 7), true);
@@ -44,10 +44,10 @@ public class GP8_Transversal {
         //al.guardarAlumno(kevin);
 //        al.guardarAlumno(facu);
 //        al.guardarAlumno(ian);
-        //al.altaLogica(1);
+        //al.altaLogica(2);
         
         
-   //     al.modificarAlumno(xime);
+        //al.modificarAlumno(xime);
         //al.bajaLogica(2);
         
         //Acá probamos que devuelva mensaje de error cuando no existe el Id buscado
@@ -84,7 +84,7 @@ public class GP8_Transversal {
 //            
 //        }
      
-   // MateriaData mat = new MateriaData();
+   //MateriaData mat = new MateriaData();
     
     //PROBAMOS QUE FUNCIONA EL METODO Y CARGAMOS CUATRO MATERIAS
     /*
@@ -124,7 +124,7 @@ public class GP8_Transversal {
 
   //     mat.borrarMateria(1);
 
-    InscripcionData id= new InscripcionData();
+    //InscripcionData id= new InscripcionData();
     //inscripciondata pruebas
     
     /*for(Inscripcion inscripcion:id.obtenerInscripciones()){
@@ -134,5 +134,28 @@ public class GP8_Transversal {
         System.out.println("Materia "+inscripcion.getMateria().getNombre());
     }
     */
+    
+    /*InscripcionData inscripcionData = new InscripcionData();
+        
+     
+        Alumno alumno1 = new Alumno();  
+        alumno1.setIdAlumno(1);         
+        
+        Materia Matemática = new Materia(); 
+        Matemática.setIdMateria(101);       
+        
+     
+        Inscripcion inscripcion1 = new Inscripcion();
+        inscripcion1.setAlumno(alumno1);
+        inscripcion1.setMateria(Matemática);
+        inscripcion1.setNota(7); 
+
+       
+        inscripcionData.guardarInscripcion(inscripcion1);
+
+    */
+    
     }
+    
+    
 }

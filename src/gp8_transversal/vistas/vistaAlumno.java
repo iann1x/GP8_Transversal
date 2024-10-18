@@ -134,28 +134,30 @@ private Alumno alumnoActual=null;
                         .addComponent(jbNuevo)
                         .addGap(48, 48, 48)
                         .addComponent(jbEliminar)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                        .addComponent(jbGuardar)
-                        .addGap(37, 37, 37)
-                        .addComponent(jbSalir)
-                        .addGap(16, 16, 16))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jrEstado)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jcFechaNac, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jtApellido)
                                     .addComponent(jtDni)
                                     .addComponent(jtNombre))
                                 .addGap(23, 23, 23)
-                                .addComponent(jbBuscar)))))
-                .addGap(29, 29, 29))
+                                .addComponent(jbBuscar)))
+                        .addGap(29, 29, 29))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jcFechaNac, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbGuardar)))
+                        .addGap(37, 37, 37)
+                        .addComponent(jbSalir)
+                        .addGap(16, 16, 16))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jltitulo)
@@ -187,7 +189,7 @@ private Alumno alumnoActual=null;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jcFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbNuevo)
                     .addComponent(jbEliminar)
@@ -215,7 +217,7 @@ private Alumno alumnoActual=null;
        }
       } catch(NumberFormatException ex){
 
-          JOptionPane.showMessageDialog(this,"debe ingresar un numero valido");
+          JOptionPane.showMessageDialog(this,"Debe ingresar un numero valido");
       }
        
     }//GEN-LAST:event_jbBuscarActionPerformed
@@ -242,7 +244,7 @@ private Alumno alumnoActual=null;
          alumnoActual=new Alumno(dni,apellido,nombre,fechaNac,estado);
          aluData.guardarAlumno(alumnoActual);
          
-           JOptionPane.showMessageDialog(this,"alumno guardado");
+           JOptionPane.showMessageDialog(this,"Alumno guardado");
          
          }else  {
          alumnoActual.setDni(dni);
@@ -252,7 +254,7 @@ private Alumno alumnoActual=null;
           aluData.modificarAlumno(alumnoActual);
          }
     }catch(NumberFormatException nfe){
-    JOptionPane.showMessageDialog(this,"debe ingresar un dni valido");
+    JOptionPane.showMessageDialog(this,"Debe ingresar un dni válido");
     }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
@@ -264,7 +266,7 @@ private Alumno alumnoActual=null;
         
                 }else{
                         
-                        JOptionPane.showMessageDialog(this,"no hay un alumno seleccionado");
+                        JOptionPane.showMessageDialog(this,"No hay un alumno seleccionado");
                         
                         }
      
