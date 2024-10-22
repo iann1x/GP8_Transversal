@@ -212,9 +212,11 @@ public class vistaNotas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbAlumnoActionPerformed
     private void armarTabla() {
+       
         modelo.addColumn("codigo");
         modelo.addColumn("nombre");
         modelo.addColumn("nota");
+        
 
         jTnotas.setModel(modelo);
     }
@@ -244,10 +246,11 @@ public class vistaNotas extends javax.swing.JInternalFrame {
 
         for (Inscripcion ins : inscripciones) {
             modelo.addRow(new Object[]{
+                
                 ins.getMateria().getIdMateria(),
                 ins.getMateria().getNombre(),
-                ins.getNota()
-            });
+                ins.getNota(), 
+           });
         }
     }
 
