@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package gp8_transversal.persistencia;
 
 import gp8_transversal.entidades.Alumno;
@@ -35,29 +32,27 @@ public class InscripcionData {
     }
 
     public void guardarInscripcion(Inscripcion insc) {
-        String sql = "INSERT INTO inscripcion(idAlumno, idMateria, nota) VALUES (?,?,?)";
+        String sql = "INSERT INTO inscripcion(idAlumno, idMateria) VALUES (?,?)";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, insc.getAlumno().getIdAlumno());
-            ps.setInt(2, insc.getMateria().getIdMateria());
+            ps.setInt(2, insc.getMateria().getIdMateria()); 
             ps.setDouble(3, insc.getNota());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
 
                 insc.setIdInscripcion(rs.getInt(1));
-                //JOptionPane.showMessageDialog(null,"Inscripcion Registrada");
-                System.out.println("Inscripcion Registrada");
+                JOptionPane.showMessageDialog(null,"Inscripcion registrada");
+                //System.out.println("Inscripcion Registrada");
 
             }
             ps.close();
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
-
         }
-
     }
 
     public void actualizarNota(double nota, int idAlumno, int idMateria) {
@@ -65,7 +60,7 @@ public class InscripcionData {
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setDouble(1, nota);       
+            ps.setDouble (1, nota);       
             ps.setInt(2, idAlumno);      
             ps.setInt(3, idMateria);     
 
@@ -95,7 +90,7 @@ public class InscripcionData {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
+             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
         }
 
     }
@@ -247,3 +242,4 @@ public class InscripcionData {
 
     }
 }
+
