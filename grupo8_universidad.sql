@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2024 a las 20:48:52
+-- Tiempo de generación: 23-10-2024 a las 01:54:28
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -48,7 +48,8 @@ INSERT INTO `alumno` (`idAlumno`, `dni`, `apellido`, `nombre`, `fechaNac`, `esta
 (6, 25756891, 'Garcia', 'Facundo', '1997-04-05', 1),
 (7, 38147951, 'Chiti', 'Ian', '2000-10-07', 1),
 (8, 12135259, 'Suarez', 'Andrea', '1970-10-05', 0),
-(9, 35916316, 'Cuello', 'Milton', '1991-07-29', 1);
+(9, 35916316, 'Cuello', 'Milton', '1991-07-29', 1),
+(10, 11984110, 'Cuello', 'Angel', '2024-10-18', 1);
 
 -- --------------------------------------------------------
 
@@ -62,6 +63,17 @@ CREATE TABLE `inscripcion` (
   `idAlumno` int(11) DEFAULT NULL,
   `idMateria` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `inscripcion`
+--
+
+INSERT INTO `inscripcion` (`idInscripto`, `nota`, `idAlumno`, `idMateria`) VALUES
+(16, 9, 3, 4),
+(17, 7, 6, 4),
+(19, 8, 7, 7),
+(27, 6, 3, 8),
+(28, 10, 10, 4);
 
 -- --------------------------------------------------------
 
@@ -83,7 +95,10 @@ CREATE TABLE `materia` (
 INSERT INTO `materia` (`idMateria`, `nombre`, `cuatrimestre`, `estado`) VALUES
 (2, 'Laboratorio', 2, 0),
 (3, 'Base de datos I', 3, 0),
-(4, 'Base de datos', 2, 1);
+(4, 'Base de datos', 2, 1),
+(7, 'Ingles', 1, 1),
+(8, 'Ingles II', 5, 1),
+(9, 'Matematica II', 3, 1);
 
 --
 -- Índices para tablas volcadas
@@ -119,19 +134,19 @@ ALTER TABLE `materia`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
-  MODIFY `idInscripto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idInscripto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `materia`
 --
 ALTER TABLE `materia`
-  MODIFY `idMateria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idMateria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
@@ -141,8 +156,8 @@ ALTER TABLE `materia`
 -- Filtros para la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
-  ADD CONSTRAINT `inscripcion_ibfk_1` FOREIGN KEY (`idAlumno`) REFERENCES `alumno` (`idAlumno`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `inscripcion_ibfk_2` FOREIGN KEY (`idMateria`) REFERENCES `materia` (`idMateria`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `inscripcion_ibfk_1` FOREIGN KEY (`idAlumno`) REFERENCES `alumno` (`idAlumno`),
+  ADD CONSTRAINT `inscripcion_ibfk_2` FOREIGN KEY (`idMateria`) REFERENCES `materia` (`idMateria`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

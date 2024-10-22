@@ -166,7 +166,7 @@ public class vistaNotas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-         if (jTnotas.isEditing()) {
+    if (jTnotas.isEditing()) {
     jTnotas.getCellEditor().stopCellEditing();
 }
         Alumno alumnoSeleccionado = (Alumno) jcbAlumno.getSelectedItem();
